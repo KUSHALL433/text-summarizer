@@ -7,7 +7,7 @@ import os
 
 load_dotenv()
 
-st.title('Google Gemini Text Summarizer... Generate short summary of long texts')
+st.title('Text Summarizer... Generate short summary of long texts')
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -27,3 +27,4 @@ else:
         prompt = template.invoke({'text': user_input})
         result = model.invoke(prompt)
         st.write(result.content)
+
