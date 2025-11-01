@@ -7,8 +7,11 @@ import os
 
 load_dotenv()
 
-st.title('Text Summarizer... Generate short summary of long texts')
-
+st.set_page_config(
+    page_title="Summary Generator",
+    page_icon="📝",
+)
+st.title('Text Summarizer.')
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
@@ -21,10 +24,11 @@ else:
         input_variables=['text']
     )
 
-    user_input = st.text_input("Enter long text to generate a summary")
+    user_input = st.text_input("Enter a topic or large text to generate a summary")
 
     if st.button('Submit') and user_input.strip():
         prompt = template.invoke({'text': user_input})
         result = model.invoke(prompt)
         st.write(result.content)
+
 
