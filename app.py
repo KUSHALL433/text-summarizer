@@ -30,6 +30,9 @@ else:
         prompt = template.invoke({'text': user_input})
         result = model.invoke(prompt)
         st.write(result.content)
+    else:
+        st.warning("Please enter some text or topic.")
+
 
 
 
