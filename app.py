@@ -11,7 +11,7 @@ st.set_page_config(
     page_title="Summary Generator",
     page_icon="📝",
 )
-st.title('Text Summarizer.')
+st.title('Text Summarizer.',anchor=False)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
@@ -30,5 +30,6 @@ else:
         prompt = template.invoke({'text': user_input})
         result = model.invoke(prompt)
         st.write(result.content)
+
 
 
