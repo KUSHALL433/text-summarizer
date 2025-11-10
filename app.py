@@ -8,7 +8,7 @@ import os
 
 load_dotenv()
 
-GROQ_API_KEY=os.get("GROQ_API_KEY")
+GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 st.set_page_config(
     page_title="Summary Generator",
     page_icon="📝",
@@ -27,6 +27,7 @@ if st.button('Submit') and user_input.strip():
     prompt = template.invoke({'text': user_input})
     result = model.invoke(prompt)
     st.write(result.content)
+
 
 
 
