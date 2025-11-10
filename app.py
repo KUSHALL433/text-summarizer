@@ -8,6 +8,7 @@ import os
 
 load_dotenv()
 
+GROQ_API_KEY=os.get("GROQ_API_KEY")
 st.set_page_config(
     page_title="Summary Generator",
     page_icon="📝",
@@ -15,7 +16,7 @@ st.set_page_config(
 
 st.title('Text Summarizer.',anchor=False)
 
-model = ChatGroq(model="llama-3.1-8b-instant")
+model = ChatGroq(model="llama-3.1-8b-instant",api_key=GROQ_API_KEY)
 
 template = PromptTemplate(template='Give a 5 line summary on {text}',
         input_variables=['text'])
@@ -26,6 +27,7 @@ if st.button('Submit') and user_input.strip():
     prompt = template.invoke({'text': user_input})
     result = model.invoke(prompt)
     st.write(result.content)
+
 
 
 
