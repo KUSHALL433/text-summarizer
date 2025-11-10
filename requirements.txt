@@ -1,6 +1,6 @@
 streamlit
 langchain
 langchain-core
-langchain-huggingface
-langchain-google-genai
+langchain-groq
 python-dotenv
+
