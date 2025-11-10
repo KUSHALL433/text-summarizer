@@ -1,5 +1,5 @@
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+# from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
 import streamlit as st
@@ -27,6 +27,7 @@ if st.button('Submit') and user_input.strip():
     prompt = template.invoke({'text': user_input})
     result = model.invoke(prompt)
     st.write(result.content)
+
 
 
 
